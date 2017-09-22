@@ -22,44 +22,43 @@ int main(void) {
 	printf("GST: %lf\n", GST);
 	Due = Due + GST;
 	printf("Balance owing: %.2f\n", Due);
-	while (Due > 0) {
+	while (Due > 1) {
 		Loonies++;
-		Due--;
+		Due = Due - 1;
 	}
 	printf("Loonies required: %d, balance owing %.2f\n", Loonies, Due);
 	
-	while (Due > 0) {
+	while (Due > .25) {
 		Quarters++;
 		Due = Due - 0.25;
 	}
+	printf("Quarters required: %d, balance owing %.2f\n", Quarters, Due);
 	
-	printf("Quarters required: %d, balance owing %.2f\n", Quarters, (float)Due2 / 100);
-	while (Due > 0) {
+
+	while (Due > 0.1) {
 		Dimes++;
 		Due = Due - 0.1;
 	}
 	printf("Dimes required: %d, balance owing %.2f\n", Dimes, (float)Due2 / 100);
-	Due = Due * 100;
-	Due2 = Due;
-	Due2 = Due2 % 10;
-	while (Due > 0) {
+	
+	
+	
+	while (Due > 0.5) {
 		Nickels++;
-		Due = Due - 0.5;
+		Due = Due - 0.05;
 	}
 	printf("Nickels required: %d, balance owing %.2f\n", Nickels, (float)Due2 / 100);
 	Due = Due * 100;
 	Due2 = Due;
 	Due2 = Due2 % 5;
-	while (Due > 0) {
+	while (Due > 0.01) {
 		Pennies++;
-		Due = Due - 0.1;
+		Due = Due - 0.01;
 	}
 	Due = Due * 100;
 	Due2 = Due;
 	Due2 = Due2 % 1;
 	printf("Pennies required: %d, balance owing %.2f\n", Pennies, (float)Due2 / 100);
-
-
 
 
 
