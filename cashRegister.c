@@ -7,62 +7,56 @@ Section:   <IPCSXX>
 // Start your code below:
 #include <stdio.h>
 int main(void) {
-	float Due = 8.68;
-	float GST = 0;
-	int gst;
+	double Due = 8.68;
+	double GST;
 	int Due2;
-	int AmmountOwed;
 	int Loonies = 0;
 	int Quarters = 0;
 	int Dimes = 0;
 	int Nickels = 0;
 	int Pennies = 0;
-	printf("Please enter the amount to be paid: $%.2f <ENTER>\n", Due);
+	printf("Please enter the amount to be paid: %.2f\n", Due);
 	GST = Due * 0.13 + .005;
-	printf("GST: %lf\n", GST);
+	printf("GST: %.2f\n", GST);
 	Due = Due + GST;
 	printf("Balance owing: %.2f\n", Due);
 	while (Due > 1) {
-		Loonies++;
+		Loonies = Loonies + 1;
 		Due = Due - 1;
 	}
-	printf("Loonies required: %d, balance owing %.2f\n", Loonies, Due);
+	printf("Loonies required: %d, balance owing %.2f\n", Loonies,(float) Due);
 	
-	while (Due > .25) {
-		Quarters++;
-		Due = Due - 0.25;
-	}
-	printf("Quarters required: %d, balance owing %.2f\n", Quarters, Due);
-	
-
-	while (Due > 0.1) {
-		Dimes++;
-		Due = Due - 0.1;
-	}
-	printf("Dimes required: %d, balance owing %.2f\n", Dimes, (float)Due2 / 100);
-	
-	
-	
-	while (Due > 0.5) {
-		Nickels++;
-		Due = Due - 0.05;
-	}
-	printf("Nickels required: %d, balance owing %.2f\n", Nickels, (float)Due2 / 100);
 	Due = Due * 100;
 	Due2 = Due;
-	Due2 = Due2 % 5;
-	while (Due > 0.01) {
-		Pennies++;
-		Due = Due - 0.01;
+	
+
+	while ((float)Due2 > 25) {
+		Quarters = Due2 / 25;
+		Due2 %= 25;
 	}
-	Due = Due * 100;
-	Due2 = Due;
-	Due2 = Due2 % 1;
-	printf("Pennies required: %d, balance owing %.2f\n", Pennies, (float)Due2 / 100);
+	printf("Quarters required: %d, balance owing %.2f\n", Quarters,(float) Due2 / 100);
+	
 
+	while ((float)Due2 > 10) {
+		Dimes = Due2 / 10;
+		Due2 %= 10;
+	}
+	printf("Dimes required: %d, balance owing %.2f\n", Dimes,(float) Due2 / 100);
+	
+	
+	
+	while ((float)Due2 > 5) {
+		Nickels = Due2 / 5;
+		Due2 %= 5;
+	}
+	printf("Nickels required: %d, balance owing %.2f\n", Nickels, (float) Due2 / 100);
+	
+	while ((float)Due2 >= 1) {
+		Pennies = Due2 / 1;
+		Due2 %= 1;
+	}
 
-
-
+	printf("Pennies required: %d, balance owing %.2f\n", Pennies,(float) Due2 / 100);
 
 	return 0;
 }
